@@ -1,0 +1,90 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://com.springbootsoap.allapis"
+           targetNamespace="http://com.springbootsoap.allapis"
+           elementFormDefault="qualified">
+
+
+    <xs:complexType name="adminInfo">
+        <xs:sequence>
+            <xs:element name="adminId" type="xs:long"/>
+            <xs:element name="username" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="serviceStatusAdmin">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="addAdminRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="adminInfo" type="tns:adminInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addAdminResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatusAdmin" type="tns:serviceStatusAdmin"/>
+                <xs:element name="adminInfo" type="tns:adminInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="getAdminByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="adminId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAdminResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="adminInfo" type="tns:adminInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateAdminRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="adminInfo" type="tns:adminInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateAdminResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatusAdmin" type="tns:serviceStatusAdmin"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="deleteAdminRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="adminId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteAdminResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatusAdmin" type="tns:serviceStatusAdmin"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
